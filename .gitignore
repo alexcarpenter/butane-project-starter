@@ -1,0 +1,29 @@
+# Gulp
+node_modules
+.sass-cache/
+
+# Images
+images/avatars/
+images/captchas/
+images/smileys/
+images/member_photos/
+images/signature_attachments/
+images/pm_attachments/
+
+# Storage
+/craft/storage/*
+!/craft/storage/.gitkeep
+!/craft/storage/logo/*
+/logs/*
+
+# Uploads
+/public/uploads/**
+!/public/uploads/**/
+!/public/uploads/**/.gitkeep
+
+# Caches
+_cached/
+_remote/
+thumbs/
+_thumbs/
+*/expressionengine/cache/*

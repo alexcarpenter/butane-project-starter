@@ -1,0 +1,26 @@
+/* ==========================================================================
+   UTILITIES/MARGINS
+   ========================================================================== */
+
+
+@mixin utility-margins($breakpoint: null) {
+  @for $i from 1 through 4 {
+    .u-margin-#{$i}#{$breakpoint} { margin: units($i) !important; }
+    .u-margin-top-#{$i}#{$breakpoint} { margin-top: units($i) !important; }
+    .u-margin-right-#{$i}#{$breakpoint} { margin-right: units($i) !important; }
+    .u-margin-bottom-#{$i}#{$breakpoint} { margin-bottom: units($i) !important; }
+    .u-margin-left-#{$i}#{$breakpoint} { margin-left: units($i) !important; }
+  }
+}
+
+
+@include utility-margins();
+
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $name, $value in $mq-breakpoints {
+    @include mq($from: $name) {
+      @include utility-margins(\@#{$name});
+    }
+  }
+}
