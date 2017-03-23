@@ -3,6 +3,8 @@
 {% set title = 'Home' %}
 
 {% block body %}
+{{ macro.icon('icon', 'icon-facebook') }}
+
 {% for entry in craft.entries.section('blog') %}
   {% include '_includes/blocks' with { handle: entry.blocks } %}
 {% endfor %}

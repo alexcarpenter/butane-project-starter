@@ -1,21 +1,19 @@
+{% import '_macros' as macro %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% include '_includes/head' %}
-</head>
-<body>
-  <div class="u-hidden">{% include '_includes/icons.svg' %}</div>
+  <head>
+    {% include '_includes/head' %}
+  </head>
+  <body>
+    <div class="u-hidden">{% include '_includes/icons.svg' %}</div>
 
-  {% include '_includes/header' %}
-  
-  {% block body %}{% endblock %}
+    {% include '_includes/header' %}
 
-  {% include '_includes/footer' %}
-  
-  <script>
-    loadjs('{{ siteUrl }}assets/js/lazysizes.min.js');
-  </script>
-  {% set _block = block('pageJs') %}
-  {% if _block is not empty %}{{ _block|raw }}{% endif %}
-</body>
+    {% block body %}{% endblock %}
+
+    {% include '_includes/footer' %}
+
+    {% include '_includes/scripts' %}
+  </body>
 </html>

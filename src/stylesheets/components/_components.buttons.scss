@@ -26,12 +26,12 @@
  */
 
 .c-btn--primary {
-  background-color: $c-color-gray-0;
-  color: $c-color-gray-100;
+  background-color: $c-gray-0;
+  color: $c-gray-100;
 
   &:hover,
   &:active,
   &:focus {
-    background-color: lighten($c-color-gray-0, 10%);
+    background-color: lighten($c-gray-0, 10%);
   }
 }

@@ -1,0 +1,6 @@
+{# SVG Icons #}
+{% macro icon(class, id) %}
+  <svg class="{{ class }}">
+    <use xlink:href="#{{ id }}"></use>
+  </svg>
+{% endmacro %}

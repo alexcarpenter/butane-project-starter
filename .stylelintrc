@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "ignoreFiles": [
+    "./src/stylesheets/tools/*.scss",
+    "./src/stylesheets/settings/*.scss"
+  ],
+  "rules": {
+    "color-hex-case": "lower",
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+
+    "max-empty-lines": 4,
+    "max-nesting-depth": 2
+  }
+}

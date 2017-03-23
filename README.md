@@ -1,14 +1,40 @@
-# Boilerplate
+# boilerplate
 
-> A simple boilerplate for new CraftCMS setups
+## Getting started
 
-## What's included
-- Node-sass to compile sass with Autoprefixer, cssnano to minify
-- Svgstore to generate icon sprite
-- Imagemin to minify and optimize images
-- LoadJS for async JS loader
+### Installation
 
-## TODO
-- [ ] ES6 JS, webpack? We're already using gulp though...
-- [ ] Setup server script to get things up and running
-- [ ] Include craft config?
+`yarn` or `npm i`
+
+### Development
+
+`npm start` and `npm run webpack-dev`
+
+### Build for production
+
+`npm run build`
+
+## Gulp
+
+### Stylesheets
+- gulp-sass
+- stylelint
+- itcss
+- autoprefixer
+
+### Images
+- imagemin
+
+### Icons
+- imagemin
+- svgstore
+
+### Static
+- imagemin
+
+## Webpack
+- es6
+- babel
+- eslint
+- standard format
+- commonschunk plugin
