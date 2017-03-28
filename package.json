@@ -6,7 +6,16 @@
     "webpack": "export NODE_ENV=dev && webpack --hide-modules",
     "webpack-dev": "export NODE_ENV=dev && webpack --hide-modules --watch",
     "webpack-build": "export NODE_ENV=production && webpack --hide-modules",
-    "build": "gulp build && npm run webpack-build"
+    "build": "gulp build && npm run webpack-build",
+    "test": "standard --verbose | snazzy",
+    "precommit": "npm test"
+  },
+  "standard": {
+    "ignore": [
+      "public/*",
+      "gulpfile.js",
+      "webpack.config.js"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
@@ -27,9 +36,11 @@
     "gulp-sass": "^3.1.0",
     "gulp-stylelint": "^3.9.0",
     "gulp-svgstore": "^6.1.0",
+    "husky": "^0.13.3",
     "lazysizes": "^3.0.0-rc4",
     "run-sequence": "^1.2.2",
     "sass-mq": "^3.3.2",
+    "snazzy": "^6.0.0",
     "stylelint": "^7.9.0",
     "stylelint-scss": "^1.4.3",
     "webpack": "^2.2.0-rc.3"
