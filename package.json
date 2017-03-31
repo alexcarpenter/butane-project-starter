@@ -7,7 +7,9 @@
     "webpack-dev": "export NODE_ENV=dev && webpack --hide-modules --watch",
     "webpack-build": "export NODE_ENV=production && webpack --hide-modules",
     "build": "gulp build && npm run webpack-build",
-    "test": "standard --verbose | snazzy",
+    "stylelint": "stylelint 'src/stylesheets/**/*.scss'",
+    "eslint": "standard --verbose | snazzy",
+    "test": "npm run eslint && npm run stylelint",
     "precommit": "npm test"
   },
   "standard": {
@@ -43,6 +45,7 @@
     "snazzy": "^6.0.0",
     "stylelint": "^7.9.0",
     "stylelint-scss": "^1.4.3",
-    "webpack": "^2.2.0-rc.3"
+    "webpack": "^2.2.0-rc.3",
+    "webpack-stream": "^3.2.0"
   }
 }
