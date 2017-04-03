@@ -1,3 +1,7 @@
+import { One } from './modules/example.js'
+
+One()
+
 const arr = [
   'foo',
   'bar',

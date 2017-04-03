@@ -6,7 +6,8 @@ module.exports = {
     vendor: [
       'lazysizes'
     ],
-    main: './src/javascripts/main.js'
+    common: './src/javascripts/common.js',
+    index: './src/javascripts/pages/index.js'
   },
 
   output: {
@@ -33,23 +34,4 @@ module.exports = {
       names: [ 'vendor' ]
     })
   ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourcemap: true,
-      compress: {
-        warnings: false
-      }
-    })
-  )
-
-  module.exports.plugins.push(
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    })
-  )
 }

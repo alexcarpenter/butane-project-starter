@@ -3,9 +3,11 @@
 {% set title = 'Home' %}
 
 {% block body %}
-{{ macro.icon('icon', 'icon-facebook') }}
+  {{ macro.icon('icon', 'icon-facebook') }}
 
-{% for entry in craft.entries.section('blog') %}
-  {% include '_includes/blocks' with { handle: entry.blocks } %}
-{% endfor %}
+  {% for entry in craft.entries.section('blog') %}
+    {{ macro.blocks(entry.blocks) }}
+  {% endfor %}
 {% endblock %}
+
+{% includeJsFile "/assets/js/index.js" %}
