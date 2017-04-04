@@ -1,7 +1,7 @@
 {# ================================================================== #}
-{# Blocks content
+{# Content
 {# ================================================================== #}
-{% macro blocks(handle) %}
+{% macro content(handle) %}
   {% set lazyImage = false %}
   {% for block in handle %}
     {% include ('_blocks/' ~ block.type.handle) %}

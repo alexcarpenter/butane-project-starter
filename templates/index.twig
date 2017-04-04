@@ -6,7 +6,7 @@
   {{ macro.icon('icon', 'icon-facebook') }}
 
   {% for entry in craft.entries.section('blog') %}
-    {{ macro.blocks(entry.blocks) }}
+    {{ macro.content(entry.blocks) }}
   {% endfor %}
 {% endblock %}
 
