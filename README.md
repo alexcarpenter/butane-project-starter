@@ -1,4 +1,6 @@
-# boilerplate
+# Butane
+
+> A boilerplate for new web projects with CraftCMS in mind.
 
 ## Getting started
 
