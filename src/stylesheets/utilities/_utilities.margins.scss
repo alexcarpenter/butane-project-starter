@@ -5,11 +5,13 @@
 
 @mixin utility-margins($breakpoint: null) {
   @for $i from 1 through 4 {
+    /* stylelint-disable */
     .u-margin-#{$i}#{$breakpoint} { margin: units($i) !important; }
     .u-margin-top-#{$i}#{$breakpoint} { margin-top: units($i) !important; }
     .u-margin-right-#{$i}#{$breakpoint} { margin-right: units($i) !important; }
     .u-margin-bottom-#{$i}#{$breakpoint} { margin-bottom: units($i) !important; }
     .u-margin-left-#{$i}#{$breakpoint} { margin-left: units($i) !important; }
+    /* stylelint-enable */
   }
 }
 

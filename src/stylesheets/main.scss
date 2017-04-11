@@ -14,7 +14,7 @@
 // TOOLS
 @import 'tools/tools.functions';
 @import 'tools/tools.mixins';
-@import "node_modules/sass-mq/mq";
+@import 'node_modules/sass-mq/mq';
 
 
 // GENERIC
@@ -23,9 +23,9 @@
 
 
 // OBJECTS
-@import 'objects/objects.container';
 @import 'objects/objects.grid';
 @import 'objects/objects.ratio';
+@import 'objects/objects.wrapper';
 
 
 // COMPONENTS
@@ -36,7 +36,6 @@
 
 
 // UTILITES
-@import 'utilities/utilities.flexbox';
 @import 'utilities/utilities.hide';
 @import 'utilities/utilities.margins';
 @import 'utilities/utilities.widths';
