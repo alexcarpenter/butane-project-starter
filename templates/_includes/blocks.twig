@@ -1,0 +1,7 @@
+{% set lazyImage = false %}
+{% for block in handle %}
+  {% include ('_blocks/' ~ block.type.handle) %}
+  {% if block.type.handle == "image" %}
+    {% set lazyImage = true %}
+  {% endif %}
+{% endfor %}
