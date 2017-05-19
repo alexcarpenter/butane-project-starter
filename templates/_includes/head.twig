@@ -1,0 +1,16 @@
+<meta charset="utf-8" />
+<title>{{ title ?? null }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set cacheVal = getCookie('critical-css') %}
+{% if not cacheVal or cacheVal != staticAssetsVersion or craft.config.devMode %}
+  {{ setCookie('critical-css', staticAssetsVersion, now | date_modify("+7 days").timestamp ) }}
+  {% block _inline_css %}{% endblock %}
+  <link rel="preload" href="/assets/css/main{{staticAssetsVersion}}.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main{{staticAssetsVersion}}.css"></noscript>
+  <script>
+    {{ source('_inlineAssets/loadCSS.min.js') }}
+    {{ source('_inlineAssets/cssrelpreload.min.js') }}
+  </script>
+{% else %}
+  <link rel="stylesheet" href="/assets/css/main{{staticAssetsVersion}}.css">
+{% endif %}

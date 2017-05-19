@@ -1,0 +1,61 @@
+{# ================================================================== #}
+{# Simple text formatter
+{# ================================================================== #}
+{% macro simpleText(handle) %}
+  {{- handle|hacksaw(allow='<em><strong><i><b>') -}}
+{% endmacro %}
+
+
+{# ================================================================== #}
+{# SVG Icons
+{# ================================================================== #}
+{% macro icon(class, id) %}
+  <svg class="{{ class }}">
+    <use xlink:href="#{{ id }}"></use>
+  </svg>
+{% endmacro %}
+
+
+{# ================================================================== #}
+{# Imager Url
+{# ================================================================== #}
+{% macro imager(image, width, height) %}
+  {% set transformedImage = craft.imager.transformImage(image, { width: width, height: height, position: image.focalPoint | default('50% 50%') }) %}
+  {{ transformedImage.url }}
+{% endmacro %}
+
+
+{# ================================================================== #}
+{# Imager Srcset
+{# ================================================================== #}
+{% macro imagerSrcset(image, classes="", imageType=null) %}
+  {% set imageRatioWidth = null %}
+  {% set imageRatioHeight = null %}
+
+  {% switch imageType %}
+    {% case 'large-16x9' %}
+      {% set imageRatioWidth = 16 %}
+      {% set imageRatioHeight = 9 %}
+      {% set mode = 'crop' %}
+      {% set imageSizes = [ 
+       { width: 1200 }, 
+       { width: 900 }, 
+       { width: 600 }
+      ] %}
+
+    {% default %}
+      {% set imageRatioWidth = 1 %}
+      {% set imageRatioHeight = 0.76 %}
+      {% set mode = 'fit' %}
+      {% set imageSizes = [ 
+        { width: 1600 }, 
+        { width: 1200 }, 
+        { width: 800 }, 
+        { width: 500 }
+      ] %}
+  {% endswitch %}
+
+  {% set transformedImages = craft.imager.transformImage(image, imageSizes, { mode: mode, ratio: imageRatioWidth/imageRatioHeight, letterbox: { color: '#fafafa' }, effects: effectsArray, position: (image.focusPctX ?? '50') ~ '% ' ~ (image.focusPctY ?? '50') ~ '%', jpegQuality: 85 }) %}
+
+  <img class="{{ classes }} lazyload" alt="" src="{{ craft.imager.base64Pixel(imageRatioWidth, imageRatioHeight) }}" data-sizes="auto" data-srcset="{{ craft.imager.srcset(transformedImages) }}">
+{% endmacro %}

@@ -1,0 +1,24 @@
+{
+  "src": "./src",
+  "dest": "./public",
+  "styles": {
+    "entry": "./src/stylesheets/main.scss",
+    "glob": "./src/stylesheets/**/*.scss",
+    "dest": "./public/assets/css"
+  },
+  "images": {
+    "glob": "./src/images/**/*.{jpg,jpeg,png,svg}",
+    "dest": "./public/assets/img"
+  },
+  "icons": {
+    "glob": "./src/icons/**/*.svg",
+    "dest": "./templates/_inlineAssets"
+  },
+  "critical": {
+    "url": "http://mightyinthemidwest.com/",
+    "templates": [
+      { "url": "", "template": "index" }
+    ],
+    "dest": "../templates/_inlineAssets/"
+  }
+}
