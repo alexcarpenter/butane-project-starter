@@ -49,11 +49,11 @@ gulp.task('clean', () => {
 
 gulp.task('styles', ['styles-lint'], () => {
   return gulp.src(paths.styles.entry)
-    .pipe(gutil.env.type !== 'production' ? sourcemaps.init() : gutil.noop())
+    .pipe(gutil.env.NODE_ENV !== 'production' ? sourcemaps.init() : gutil.noop())
     .pipe(sass())
     .pipe(autoprefixer(['last 2 versions', '> 5%'], { cascade: true }))
-    .pipe(gutil.env.type !== 'production' ? sourcemaps.write('maps') : gutil.noop())
-    .pipe(gutil.env.type === 'production' ? cssnano() : gutil.noop())
+    .pipe(gutil.env.NODE_ENV !== 'production' ? sourcemaps.write('maps') : gutil.noop())
+    .pipe(gutil.env.NODE_ENV === 'production' ? cssnano() : gutil.noop())
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream({ match: '**/*.css' }))
 })

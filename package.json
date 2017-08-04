@@ -2,8 +2,9 @@
   "name": "butane",
   "version": "1.0.0",
   "scripts": {
-    "start": "gulp watch --type development",
-    "build": "gulp build --type production",
+    "start": "NODE_ENV='development' gulp watch",
+    "build": "NODE_ENV='production' gulp build",
+    "lint": "stylelint \"**/*.scss\" --syntax scss",
     "test": "standard --verbose | snazzy",
     "precommit": "npm test"
   },
@@ -40,6 +41,7 @@
     "sass-mq": "^3.3.2",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
+    "stylelint": "^8.0.0",
     "stylelint-scss": "^2.0.0",
     "webpack": "^2.6.0"
   },
