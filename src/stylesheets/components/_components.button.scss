@@ -1,0 +1,20 @@
+/* ==========================================================================
+   COMPONENTS/BUTTON
+   ========================================================================== */
+
+.c-btn {
+  position: relative;
+  background-color: transparent;
+  font: inherit;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.c-btn:hover,
+.c-btn:focus,
+.c-btn:active {
+  text-decoration: none;
+}

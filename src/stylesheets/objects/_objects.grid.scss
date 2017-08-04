@@ -1,0 +1,101 @@
+/* ==========================================================================
+   OBJECTS/GRID
+   ========================================================================== */
+
+
+$grid-gutter-size: $spacing-unit-default;
+
+
+/**
+ * Core grid setup
+ *
+ * DO NOT apply dimension or offset utilities to the `Grid` element. All cell
+ * widths and offsets should be applied to child grid cells.
+ */
+
+.o-grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/* 
+   Grid variants
+   ========================================================================== */
+
+
+/**
+ * Center align all grid cells
+ */
+
+.o-grid--alignCenter {
+  justify-content: center;
+}
+
+
+/**
+ * Right align all grid cells
+ */
+
+.o-grid--alignRight {
+  justify-content: flex-end;
+}
+
+
+/**
+ * Middle align all grid cells
+ */
+
+.o-grid--alignMiddle {
+  align-items: center;
+}
+
+
+/**
+ * Bottom align grid cells
+ */
+
+.o-grid--alignBottom {
+  align-items: flex-end;
+}
+
+
+/**
+ * Equalize grid cell height to tallest cell
+ */
+
+.o-grid--equalHeight > .o-grid__cell {
+  display: flex;
+}
+
+
+/**
+ * Grid with gutters
+ */
+
+.o-grid--withGutters {
+  margin-right: $grid-gutter-size * -1;
+  margin-left: $grid-gutter-size * -1;
+
+  > .o-grid__cell {
+    padding-right: $grid-gutter-size;
+    padding-left: $grid-gutter-size;
+  }
+}
+
+
+
+
+/* 
+   Grid cell
+   ========================================================================== */
+
+
+.o-grid__cell {
+  flex-basis: 100%;
+  min-width: 0;
+}

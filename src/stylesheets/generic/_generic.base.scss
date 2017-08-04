@@ -20,12 +20,14 @@ html {
 
 body {
   margin: 0;
+
+  @include font-sans-loaded();
 }
 
 
-*
+/**
  * A very simple reset
- 
+ */
 
 h1, h2, h3, h4, h5, h6,
 blockquote, p, pre,
@@ -48,7 +50,6 @@ li > {
   ul {
     margin-bottom: 0;
   }
-
 }
 
 
@@ -70,9 +71,4 @@ table {
 fieldset {
   min-width: 0; /* [1] */
   border: 0;
-}
-
-
-a {
-  text-decoration: none;
 }

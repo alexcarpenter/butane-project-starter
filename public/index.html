@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Butane</title>
+  <style>
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Source Sans Pro Italic'), local('SourceSansPro-Italic'),
+           url('/assets/fonts/source-sans-pro-v10-latin-italic.woff2') format('woff2'),
+           url('/assets/fonts/source-sans-pro-v10-latin-italic.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+           url('/assets/fonts/source-sans-pro-v10-latin-regular.woff2') format('woff2'),
+           url('/assets/fonts/source-sans-pro-v10-latin-regular.woff') format('woff');
+    }
+    @font-face {
+      font-family: 'Source Sans Pro';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+           url('/assets/fonts/source-sans-pro-v10-latin-700.woff2') format('woff2'),
+           url('/assets/fonts/source-sans-pro-v10-latin-700.woff') format('woff');
+    }
+  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <h1>Butane</h1>
+
+  <div class="o-grid o-grid--withGutters">
+    <div class="o-grid__cell u-size6of12@md">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores, tempore, ullam magni aut commodi, rem rerum aliquam asperiores corporis reiciendis reprehenderit perferendis laborum similique neque quia. Nulla quis, odit.</p>
+    </div>
+
+    <div class="o-grid__cell u-size6of12@md">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores, tempore, ullam magni aut commodi, rem rerum aliquam asperiores corporis reiciendis reprehenderit perferendis laborum similique neque quia. Nulla quis, odit.</p>
+    </div>
+  </div>
+
+  <template id="offline-message-template">
+    <aside class="c-offline" id="offline-message" role="alert">
+      <div class="o-wrapper">
+        <div class="c-offline__inner">
+          <p>You appear to be offline at the moment. <a href="/">Try&nbsp;again</a></p>
+          <button class="c-offline__dismiss" onclick="this.parentElement.remove()">
+            <svg width="24" height="24" role="img" aria-hidden="true">
+              <title>Close</title>
+              <g transform="rotate(45 12 12)" fill="none" stroke="#fff" stroke-width="2">
+                <line x1="12" y1="3" x2="12" y2="21"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+  </template>
+  
+  <script src="assets/js/vendor.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

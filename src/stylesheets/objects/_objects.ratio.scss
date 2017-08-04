@@ -1,0 +1,59 @@
+/* ==========================================================================
+   OBJECTS/RATIO
+   ========================================================================== */
+
+
+$butane-ratios: (
+  (2:1),
+  (4:3),
+  (16:9),
+) !default;
+
+
+.o-ratio {
+  position: relative;
+  display: block;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+}
+
+.o-ratio__content,
+.o-ratio > iframe,
+.o-ratio > embed,
+.o-ratio > object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 
+   Ratio variants
+   ========================================================================== */
+
+/* stylelint-disable */
+
+@each $ratio in $butane-ratios {
+  @each $antecedent, $consequent in $ratio {
+    @if (type-of($antecedent) != number) {
+      @error "`#{$antecedent}` needs to be a number."
+    }
+
+    @if (type-of($consequent) != number) {
+      @error "`#{$consequent}` needs to be a number."
+    }
+
+    .o-ratio--#{$antecedent}\:#{$consequent}:before {
+      padding-bottom: ($consequent/$antecedent) * 100%;
+    }
+  }
+}
+
+/* stylelint-enable */

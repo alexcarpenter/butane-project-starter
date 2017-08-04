@@ -16,3 +16,24 @@
   white-space: nowrap !important;
   width: 1px !important;
 }
+
+
+/**
+ * Font loading
+ */
+
+@mixin font-sans-loaded() {
+  font-family: $font-family-sans-fallback;
+
+  .fonts-loaded & {
+    font-family: $font-family-sans;
+  }
+}
+
+@mixin font-serif-loaded() {
+  font-family: $font-family-serif-fallback;
+
+  .fonts-loaded & {
+    font-family: $font-family-serif;
+  }
+}
