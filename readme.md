@@ -1,5 +1,7 @@
 # Butane
 
+> A starting point for new web projects.
+
 ## Getting started
 
 ```bash
@@ -9,9 +11,9 @@ $ npm install
 $ npm start
 ```
 
-### Available commands
+## Available commands
 
 - `npm start` - Watches files for changes and starts development server.
 - `npm build` - Builds production ready files.
-- `npm lint` - Runs [stylelint](https://stylelint.io/user-guide/) on stylesheets.
-- `npm test` - Runs [standard.js](https://standardjs.com/) formatting on javascript files.
+- `npm lint` - Runs custom [stylelint](https://stylelint.io/user-guide/) configuration on stylesheets.
+- `npm test` - Runs [standard.js](https://standardjs.com/) formatting on javascripts.

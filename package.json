@@ -5,8 +5,7 @@
     "start": "NODE_ENV='development' gulp watch",
     "build": "NODE_ENV='production' gulp build",
     "lint": "stylelint \"**/*.scss\" --syntax scss",
-    "test": "standard --verbose | snazzy",
-    "precommit": "npm test"
+    "test": "standard --verbose | snazzy"
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
