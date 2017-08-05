@@ -1,12 +1,6 @@
-<h1 align="center">
-  <img alt="Butane" src="./logo.png">
-</h1>
+# Butane
 
-<div align="center">
-  <strong>A starting point for new web projects.</strong>
-</div>
-
-<br>
+> A starting point for new web projects.
 
 ## Getting started
 
