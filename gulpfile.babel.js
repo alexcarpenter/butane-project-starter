@@ -8,58 +8,33 @@ import webpackConfig from './webpack.config'
 import imagemin from 'gulp-imagemin'
 import svgstore from 'gulp-svgstore'
 import sourcemaps from 'gulp-sourcemaps'
+import swPrecache from 'sw-precache'
 import cp from 'child_process'
 import gutil from 'gulp-util'
 import sequence from 'run-sequence'
 import del from 'del'
 import BrowserSync from 'browser-sync'
+import pkg from './package'
 
 const browserSync = BrowserSync.create()
-
-const paths = {
-  styles: {
-    entry: './src/stylesheets/main.scss',
-    glob: './src/stylesheets/**/*.scss',
-    dest: 'public/assets/css'
-  },
-  scripts: {
-    glob: './src/javascripts/**/*.js'
-  },
-  images: {
-    glob: './src/images/**/*',
-    dest: './public/assets/img'
-  },
-  icons: {
-    glob: './src/icons/**/*',
-    dest: './public/assets/icons'
-  },
-  static: {
-    glob: './src/static/*',
-    dest: './public'
-  },
-  fonts: {
-    glob: './src/fonts/*',
-    dest: './public/assets/fonts'
-  }
-}
 
 gulp.task('clean', () => {
   return del(['./public/assets/'])
 })
 
 gulp.task('styles', ['styles-lint'], () => {
-  return gulp.src(paths.styles.entry)
+  return gulp.src(pkg.paths.styles.entry)
     .pipe(gutil.env.NODE_ENV !== 'production' ? sourcemaps.init() : gutil.noop())
     .pipe(sass())
     .pipe(autoprefixer(['last 2 versions', '> 5%'], { cascade: true }))
     .pipe(gutil.env.NODE_ENV !== 'production' ? sourcemaps.write('maps') : gutil.noop())
     .pipe(gutil.env.NODE_ENV === 'production' ? cssnano() : gutil.noop())
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(gulp.dest(pkg.paths.styles.dest))
     .pipe(browserSync.stream({ match: '**/*.css' }))
 })
 
 gulp.task('styles-lint', () => {
-  return gulp.src(paths.styles.glob)
+  return gulp.src(pkg.paths.styles.glob)
     .pipe(stylelint({
       reporters: [
         {formatter: 'string', console: true}
@@ -67,7 +42,7 @@ gulp.task('styles-lint', () => {
     }))
 })
 
-gulp.task('scripts', (cb) => {
+gulp.task('scripts', (callback) => {
   const myConfig = Object.assign({}, webpackConfig)
 
   webpack(myConfig, (err, stats) => {
@@ -77,12 +52,12 @@ gulp.task('scripts', (cb) => {
       progress: true
     }))
     browserSync.reload()
-    cb()
+    callback()
   })
 })
 
 gulp.task('images', () => {
-  return gulp.src(paths.images.glob)
+  return gulp.src(pkg.paths.images.glob)
     .pipe(imagemin({
       progressive: true,
       interlaced: true,
@@ -93,11 +68,11 @@ gulp.task('images', () => {
         { convertPathData: { floatPrecision: 2 } }
       ]
     }))
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(gulp.dest(pkg.paths.images.dest))
 })
 
 gulp.task('icons', () => {
-  return gulp.src(paths.icons.glob)
+  return gulp.src(pkg.paths.icons.glob)
     .pipe(imagemin({
       progressive: true,
       interlaced: true,
@@ -109,17 +84,26 @@ gulp.task('icons', () => {
       ]
     }))
     .pipe(svgstore())
-    .pipe(gulp.dest(paths.icons.dest))
+    .pipe(gulp.dest(pkg.paths.icons.dest))
 })
 
 gulp.task('files', () => {
-  return gulp.src(paths.static.glob)
-    .pipe(gulp.dest(paths.static.dest))
+  return gulp.src(pkg.paths.static.glob)
+    .pipe(gulp.dest(pkg.paths.static.dest))
 })
 
 gulp.task('fonts', () => {
-  return gulp.src(paths.fonts.glob)
-    .pipe(gulp.dest(paths.fonts.dest))
+  return gulp.src(pkg.paths.fonts.glob)
+    .pipe(gulp.dest(pkg.paths.fonts.dest))
+})
+
+gulp.task('generate-service-worker', (callback) => {
+  const rootDir = 'public'
+
+  swPrecache.write(`${rootDir}/service-worker.js`, {
+    staticFileGlobs: [rootDir + '/**/*.{js,css,png,jpg,gif,svg,woff2,woff}'],
+    stripPrefix: rootDir
+  }, callback)
 })
 
 gulp.task('watch', () => {
@@ -128,11 +112,11 @@ gulp.task('watch', () => {
     server: { baseDir: 'public/' },
     // proxy: 'butane.local'
   })
-  
-  gulp.watch(paths.styles.glob, ['styles'])
-  gulp.watch(paths.scripts.glob, ['scripts'])
-  gulp.watch(paths.images.glob, ['images'])
-  gulp.watch(paths.icons.glob, ['icons'])
+
+  gulp.watch(pkg.paths.styles.glob, ['styles'])
+  gulp.watch(pkg.paths.scripts.glob, ['scripts'])
+  gulp.watch(pkg.paths.images.glob, ['images'])
+  gulp.watch(pkg.paths.icons.glob, ['icons'])
 })
 
 gulp.task('build', () => {

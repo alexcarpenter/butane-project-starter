@@ -7,6 +7,32 @@
     "lint": "stylelint \"**/*.scss\" --syntax scss",
     "test": "standard --verbose | snazzy"
   },
+  "paths": {
+    "styles": {
+      "entry": "./src/stylesheets/main.scss",
+      "glob": "./src/stylesheets/**/*.scss",
+      "dest": "public/assets/css"
+    },
+    "scripts": {
+      "glob": "./src/javascripts/**/*.js"
+    },
+    "images": {
+      "glob": "./src/images/**/*",
+      "dest": "./public/assets/img"
+    },
+    "icons": {
+      "glob": "./src/icons/**/*",
+      "dest": "./public/assets/icons"
+    },
+    "static": {
+      "glob": "./src/static/*",
+      "dest": "./public"
+    },
+    "fonts": {
+      "glob": "./src/fonts/*",
+      "dest": "./public/assets/fonts"
+    }
+  },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-loader": "^7.0.0",
@@ -42,6 +68,7 @@
     "standard": "^10.0.2",
     "stylelint": "^8.0.0",
     "stylelint-scss": "^2.0.0",
+    "sw-precache": "^5.2.0",
     "webpack": "^2.6.0"
   },
   "standard": {
