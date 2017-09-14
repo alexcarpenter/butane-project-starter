@@ -3,4 +3,3 @@ import offline from './modules/offline'
 
 fontLoading()
 offline()
-fjdksa
