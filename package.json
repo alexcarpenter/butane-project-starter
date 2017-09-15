@@ -66,8 +66,7 @@
     "sass-mq": "^3.3.2",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
-    "stylelint": "^8.0.0",
-    "stylelint-scss": "^2.0.0",
+    "stylelint-config-butane": "^0.1.1",
     "sw-precache": "^5.2.0",
     "webpack": "^2.6.0"
   },
