@@ -1,6 +1,6 @@
 # Butane
 
-> A starting point for new web projects.
+> A front-end development workflow and project organization for modern web development.
 
 ## Getting started
 
