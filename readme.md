@@ -5,8 +5,8 @@
 ## Getting started
 
 ```bash
-$ git clone --recursive git@github.com:alexcarpenter/butane-project-starter.git
-$ cd butane
+$ git clone --recursive git@github.com:alexcarpenter/butane-project-starter.git project
+$ cd project
 $ npm install
 $ npm start
 ```
