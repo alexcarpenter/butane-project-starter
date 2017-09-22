@@ -1,4 +1,4 @@
-# Butane
+# butane-project-starter
 
 > A front-end development workflow and project organization for modern web development.
 
