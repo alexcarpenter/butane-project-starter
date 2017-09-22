@@ -17,3 +17,7 @@ $ npm start
 - `npm build` - Builds production ready files.
 - `npm lint` - Runs custom [stylelint](https://stylelint.io/user-guide/) configuration on stylesheets.
 - `npm test` - Runs [standard.js](https://standardjs.com/) formatting on javascripts.
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT). © 2017 Alex Carpenter
