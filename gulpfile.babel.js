@@ -12,6 +12,9 @@ import swPrecache from 'sw-precache'
 import cp from 'child_process'
 import gutil from 'gulp-util'
 import sequence from 'run-sequence'
+import critical from 'critical'
+import fancyLog from 'fancy-log'
+import chalk from 'chalk'
 import del from 'del'
 import BrowserSync from 'browser-sync'
 import pkg from './package'
@@ -19,13 +22,14 @@ import pkg from './package'
 const browserSync = BrowserSync.create()
 
 gulp.task('clean', () => {
-  return del(['./public/assets/'])
+  return del(pkg.paths.clean)
 })
 
 gulp.task('styles', ['styles-lint'], () => {
   return gulp.src(pkg.paths.styles.entry)
     .pipe(process.env.NODE_ENV !== 'production' ? sourcemaps.init() : gutil.noop())
     .pipe(sass())
+    .on('error', showErrors)
     .pipe(autoprefixer(['last 2 versions', '> 5%'], { cascade: true }))
     .pipe(process.env.NODE_ENV !== 'production' ? sourcemaps.write('maps') : gutil.noop())
     .pipe(process.env.NODE_ENV === 'production' ? cssnano() : gutil.noop())
@@ -37,9 +41,15 @@ gulp.task('styles-lint', () => {
   return gulp.src(pkg.paths.styles.glob)
     .pipe(stylelint({
       reporters: [
-        {formatter: 'string', console: true}
+        { formatter: 'string', console: true }
       ]
     }))
+})
+
+gulp.task('criticalcss', ['styles'], (callback) => {
+  doSynchronousLoop(pkg.critical, processCriticalCSS, () => {
+    callback()
+  })
 })
 
 gulp.task('scripts', (callback) => {
@@ -110,7 +120,7 @@ gulp.task('watch', () => {
   browserSync.init({
     notify: false,
     server: { baseDir: 'public/' },
-    // proxy: 'butane.local'
+    // proxy: 'domain.local'
   })
 
   gulp.watch(pkg.paths.styles.glob, ['styles'])
@@ -120,5 +130,51 @@ gulp.task('watch', () => {
 })
 
 gulp.task('build', () => {
-  sequence('clean', ['styles', 'scripts', 'images', 'icons', 'fonts', 'files'])
+  sequence('clean',
+    ['styles', 'scripts', 'images', 'icons', 'fonts', 'files']
+  )
 })
+
+function showErrors (error) {
+  console.log(error.toString())
+  this.emit('end')
+}
+
+function doSynchronousLoop (data, processData, done) {
+  if (data.length > 0) {
+    const loop = (data, i, processData, done) => {
+      processData(data[i], i, () => {
+        if (++i < data.length) {
+          loop(data, i, processData, done)
+        } else {
+          done()
+        }
+      })
+    }
+    loop(data, 0, processData, done)
+  } else {
+    done()
+  }
+}
+
+function processCriticalCSS (element, i, callback) {
+  const criticalSrc = pkg.urls.local + element.url
+  const criticalDest = pkg.paths.styles.criticalDest + element.template + '_critical.min.css'
+
+  fancyLog('-> Generating critical CSS: ' + chalk.cyan(criticalSrc) + ' -> ' + chalk.magenta(criticalDest))
+  critical.generate({
+    src: criticalSrc,
+    dest: criticalDest,
+    inline: false,
+    ignore: [],
+    base: './public/',
+    css: [
+      './public/assets/css/main.css',
+    ],
+    minify: true,
+    width: 1200,
+    height: 1200
+  }, (err, output) => {
+    callback()
+  })
+}

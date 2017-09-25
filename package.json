@@ -4,17 +4,29 @@
   "scripts": {
     "start": "NODE_ENV='development' gulp watch",
     "build": "NODE_ENV='production' gulp build",
-    "lint": "stylelint \"**/*.scss\" --syntax scss",
-    "test": "standard --verbose | snazzy"
+    "styles:lint": "stylelint \"**/*.scss\" --syntax scss",
+    "scripts:lint": "standard --verbose | snazzy",
+    "lint": "npm run styles:lint && scripts:lint"
+  },
+  "urls": {
+    "production": "http://domain.com/",
+    "staging": "http://staging.domain.com/",
+    "development": "http://domain.builtbymighty.com/",
+    "local": "http://alexcarpenter.me/"
   },
   "paths": {
+    "clean": [
+      "./public/assets/",
+      "./templates/_assets/css/"
+    ],
     "styles": {
-      "entry": "./src/stylesheets/main.scss",
-      "glob": "./src/stylesheets/**/*.scss",
-      "dest": "public/assets/css"
+      "entry": "./src/styles/main.scss",
+      "glob": "./src/styles/**/*.scss",
+      "dest": "public/assets/css",
+      "criticalDest": "../templates/_assets/css/"
     },
     "scripts": {
-      "glob": "./src/javascripts/**/*.js"
+      "glob": "./src/scripts/**/*.js"
     },
     "images": {
       "glob": "./src/images/**/*",
@@ -33,6 +45,16 @@
       "dest": "./public/assets/fonts"
     }
   },
+  "critical": [
+    {
+      "url": "",
+      "template": "index"
+    },
+    {
+      "url": "404",
+      "template": "404"
+    }
+  ],
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-loader": "^7.0.0",
@@ -43,6 +65,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.11.6",
     "browser-sync": "^2.13.0",
+    "chalk": "^2.1.0",
+    "critical": "^0.9.1",
     "del": "^3.0.0",
     "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",
@@ -50,6 +74,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "fancy-log": "^1.3.0",
     "fontfaceobserver": "^2.0.13",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
