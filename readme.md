@@ -14,9 +14,10 @@ $ npm start
 ## Available commands
 
 - `npm start` - Watches files for changes and starts development server.
-- `npm build` - Builds production ready files.
-- `npm lint` - Runs custom [stylelint](https://stylelint.io/user-guide/) configuration on stylesheets.
-- `npm test` - Runs [standard.js](https://standardjs.com/) formatting on javascripts.
+- `npm run build` - Builds production ready files.
+- `npm run styles:lint` - Runs custom [stylelint](https://stylelint.io/user-guide/) configuration on stylesheets.
+- `npm run scripts:lint` - Runs [standard.js](https://standardjs.com/) formatting on javascripts.
+- `npm run lint` - Runs both `styles:lint` and `scripts:lint`.
 
 ## License
 
