@@ -1,0 +1,32 @@
+/* ==========================================================================
+   SETTINGS/Z-INDEX
+   ========================================================================== */
+
+
+$z-index: (
+  0: 0,
+  1: 10,
+  2: 20,
+  3: 30,
+  4: 40,
+  5: 50,
+  6: 60,
+  7: 70,
+  8: 80,
+  9: 90,
+  10: 100,
+);
+
+@function z-index($key) {
+  @if (type-of($key) != number) {
+    @error 'Value of `z-index()` should be a number.';
+  }
+
+  @if (map-has-key($z-index, $key)) {
+    @return map-get($z-index, $key);
+  }
+
+  @else {
+    @error '#{$key} is not a valid value for `z-index()`.';
+  }
+}

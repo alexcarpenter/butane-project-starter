@@ -3,7 +3,10 @@
    ========================================================================== */
 
 
-// Mixin to quickly apply accessible hiding to elements.
+/*
+   Mixin to quickly apply accessible hiding to elements.
+   ========================================================================== */
+
 @mixin hidden-visually() {
   border: 0 !important;
   clip: rect(0 0 0 0) !important;
@@ -18,9 +21,9 @@
 }
 
 
-/**
- * Font loading
- */
+/*
+   Font loading
+   ========================================================================== */
 
 @mixin font-sans-loaded() {
   font-family: $font-family-sans-fallback;

@@ -3,8 +3,25 @@
    ========================================================================== */
 
 
+/**
+ * Table of Contents
+ *
+ * Settings
+ * Tools
+ * Generic
+ * Objects
+ * Components
+ * Vendor
+ * Utilities
+ *
+ */
+
+
+
 // SETTINGS
-@import 'settings/settings.variables';
+@import 'settings/settings.definitions';
+@import 'settings/settings.colors';
+@import 'settings/settings.z-index';
 
 
 // TOOLS
@@ -15,6 +32,8 @@
 
 // GENERIC
 @import 'generic/generic.base';
+@import 'generic/generic.forms';
+@import 'generic/generic.headings';
 
 
 // OBJECTS
@@ -25,7 +44,7 @@
 
 // COMPONENTS
 @import 'components/components.button';
-@import 'components/components.offline';
+// @import 'components/components.offline';
 
 
 // VENDOR

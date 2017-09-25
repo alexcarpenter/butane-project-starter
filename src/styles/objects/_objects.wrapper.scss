@@ -1,9 +1,11 @@
 /* ==========================================================================
-   TOOLS/FUNCTIONS
+   OBJECTS/WRAPPER
    ========================================================================== */
 
 
-// Output units as a measurable value
-// @function units($count) {
-//   @return ($u-spacing-unit * $count);
-// }
+.o-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1200px;
+}

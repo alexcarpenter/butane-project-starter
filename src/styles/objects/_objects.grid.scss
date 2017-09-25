@@ -3,11 +3,21 @@
    ========================================================================== */
 
 
-$grid-gutter-size: $spacing-unit-default;
+$grid-gutter-size: $global-spacing-unit;
 
 
 /**
  * Core grid setup
+ *
+ *  <div class="o-grid o-grid--withGutters">
+ *    <div class="o-grid__cell u-size6of12"></div>
+ *    <div class="o-grid__cell u-size6of12"></div>
+ *  </div>
+ *
+ *  <div class="o-grid o-grid--withGutters">
+ *    <div class="o-grid__cell u-size6of12 u-size4of12@md"></div>
+ *    <div class="o-grid__cell u-size6of12 u-size4of12@md"></div>
+ *  </div>
  *
  * DO NOT apply dimension or offset utilities to the `Grid` element. All cell
  * widths and offsets should be applied to child grid cells.
@@ -20,10 +30,15 @@ $grid-gutter-size: $spacing-unit-default;
   padding: 0;
 }
 
+.o-grid__cell {
+  flex-basis: 100%;
+  min-width: 0;
+}
 
 
 
-/* 
+
+/*
    Grid variants
    ========================================================================== */
 
@@ -85,17 +100,4 @@ $grid-gutter-size: $spacing-unit-default;
     padding-right: $grid-gutter-size;
     padding-left: $grid-gutter-size;
   }
-}
-
-
-
-
-/* 
-   Grid cell
-   ========================================================================== */
-
-
-.o-grid__cell {
-  flex-basis: 100%;
-  min-width: 0;
 }
