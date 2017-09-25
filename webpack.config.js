@@ -6,7 +6,7 @@ module.exports = {
     vendor: [
       'lazysizes'
     ],
-    main: './src/javascripts/main'
+    main: './src/scripts/main'
   },
 
   output: {
