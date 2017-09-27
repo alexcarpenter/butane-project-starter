@@ -6,7 +6,6 @@ import stylelint from 'gulp-stylelint'
 import webpack from 'webpack'
 import webpackConfig from './webpack.config'
 import imagemin from 'gulp-imagemin'
-import svgstore from 'gulp-svgstore'
 import sourcemaps from 'gulp-sourcemaps'
 import swPrecache from 'sw-precache'
 import cp from 'child_process'
@@ -47,7 +46,7 @@ gulp.task('styles-lint', () => {
 })
 
 gulp.task('criticalcss', ['styles'], (callback) => {
-  doSynchronousLoop(pkg.critical, processCriticalCSS, () => {
+  doSynchronousLoop(pkg.critical.pages, processCriticalCSS, () => {
     callback()
   })
 })
@@ -81,22 +80,6 @@ gulp.task('images', () => {
     .pipe(gulp.dest(pkg.paths.images.dest))
 })
 
-gulp.task('icons', () => {
-  return gulp.src(pkg.paths.icons.glob)
-    .pipe(imagemin({
-      progressive: true,
-      interlaced: true,
-      multipass: true,
-      svgoPlugins: [
-        { cleanupListOfValues: { floatPrecision: 2 } },
-        { cleanupNumericValues: { floatPrecision: 2 } },
-        { convertPathData: { floatPrecision: 2 } }
-      ]
-    }))
-    .pipe(svgstore())
-    .pipe(gulp.dest(pkg.paths.icons.dest))
-})
-
 gulp.task('files', () => {
   return gulp.src(pkg.paths.static.glob)
     .pipe(gulp.dest(pkg.paths.static.dest))
@@ -120,7 +103,7 @@ gulp.task('watch', () => {
   browserSync.init({
     notify: false,
     server: { baseDir: 'public/' },
-    // proxy: 'domain.local'
+    // proxy: pkg.urls.local
   })
 
   gulp.watch(pkg.paths.styles.glob, ['styles'])
@@ -131,7 +114,13 @@ gulp.task('watch', () => {
 
 gulp.task('build', () => {
   sequence('clean',
-    ['styles', 'scripts', 'images', 'icons', 'fonts', 'files']
+    [
+      pkg.critical.init ? 'criticalcss' : 'styles',
+      'scripts',
+      'images',
+      'fonts',
+      'files'
+    ]
   )
 })
 
@@ -159,7 +148,7 @@ function doSynchronousLoop (data, processData, done) {
 
 function processCriticalCSS (element, i, callback) {
   const criticalSrc = pkg.urls.local + element.url
-  const criticalDest = pkg.paths.styles.criticalDest + element.template + '_critical.min.css'
+  const criticalDest = pkg.critical.dest + element.template + '_critical.min.css'
 
   fancyLog('-> Generating critical CSS: ' + chalk.cyan(criticalSrc) + ' -> ' + chalk.magenta(criticalDest))
   critical.generate({

@@ -12,7 +12,7 @@
     "production": "http://domain.com/",
     "staging": "http://staging.domain.com/",
     "development": "http://domain.builtbymighty.com/",
-    "local": "http://alexcarpenter.me/"
+    "local": "http://domain.local/"
   },
   "paths": {
     "clean": [
@@ -22,8 +22,7 @@
     "styles": {
       "entry": "./src/styles/main.scss",
       "glob": "./src/styles/**/*.scss",
-      "dest": "public/assets/css",
-      "criticalDest": "../templates/_assets/css/"
+      "dest": "public/assets/css"
     },
     "scripts": {
       "glob": "./src/scripts/**/*.js"
@@ -45,16 +44,20 @@
       "dest": "./public/assets/fonts"
     }
   },
-  "critical": [
-    {
-      "url": "",
-      "template": "index"
-    },
-    {
-      "url": "404",
-      "template": "404"
-    }
-  ],
+  "critical": {
+    "init": false,
+    "dest": "../templates/_assets/css/",
+    "pages": [
+      {
+        "url": "",
+        "template": "index"
+      },
+      {
+        "url": "404",
+        "template": "404"
+      }
+    ]
+  },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-loader": "^7.0.0",
