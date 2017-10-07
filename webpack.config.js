@@ -1,12 +1,10 @@
 const webpack = require('webpack')
 const path = require('path')
+const pkg = require('./package')
 
 module.exports = {
-  entry: {
-    vendor: [
-      'lazysizes'
-    ],
-    main: './src/scripts/main'
+  entry: function () {
+    return pkg.paths.scripts.webpack
   },
 
   output: {

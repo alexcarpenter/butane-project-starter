@@ -25,6 +25,12 @@
       "dest": "public/assets/css"
     },
     "scripts": {
+      "webpack": {
+        "vendor": [
+          "lazysizes"
+        ],
+        "main": "./src/scripts/main"
+      },
       "glob": "./src/scripts/**/*.js"
     },
     "images": {
