@@ -15,6 +15,9 @@
  * Breakpoints - https://github.com/sass-mq/sass-mq
  */
 /**
+ * Sizing
+ */
+/**
  * Colors
  */
 /**
@@ -44,6 +47,9 @@
 /* 
    Utilties
    ========================================================================== */
+/**
+ * Widths
+ */
 /* ==========================================================================
    FUNCTIONS
    ========================================================================== */
@@ -305,5 +311,75 @@ a {
 /* ==========================================================================
    UTILITIES/WIDTH
    ========================================================================== */
+.u-width3of12 {
+  -ms-flex-preferred-size: auto !important;
+      flex-basis: auto !important;
+  width: 25% !important; }
+
+.u-width6of12 {
+  -ms-flex-preferred-size: auto !important;
+      flex-basis: auto !important;
+  width: 50% !important; }
+
+.u-width8of12 {
+  -ms-flex-preferred-size: auto !important;
+      flex-basis: auto !important;
+  width: 66.66667% !important; }
+
+@media (min-width: 30em) {
+  .u-width3of12\@sm {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 25% !important; }
+  .u-width6of12\@sm {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 50% !important; }
+  .u-width8of12\@sm {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 66.66667% !important; } }
+
+@media (min-width: 45em) {
+  .u-width3of12\@md {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 25% !important; }
+  .u-width6of12\@md {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 50% !important; }
+  .u-width8of12\@md {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 66.66667% !important; } }
+
+@media (min-width: 64em) {
+  .u-width3of12\@lg {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 25% !important; }
+  .u-width6of12\@lg {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 50% !important; }
+  .u-width8of12\@lg {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 66.66667% !important; } }
+
+@media (min-width: 80em) {
+  .u-width3of12\@xl {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 25% !important; }
+  .u-width6of12\@xl {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 50% !important; }
+  .u-width8of12\@xl {
+    -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+    width: 66.66667% !important; } }
 
 /*# sourceMappingURL=maps/main.css.map */

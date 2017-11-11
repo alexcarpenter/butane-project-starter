@@ -19,7 +19,6 @@
  */
 
 $mq-breakpoints: (
-  'xs': 0,
   'sm': 480px,
   'md': 720px,
   'lg': 1024px,
@@ -28,10 +27,17 @@ $mq-breakpoints: (
 
 
 /**
+ * Sizing
+ */
+
+
+
+/**
  * Colors
  */
 
 $color-gray-100: #fff !default;
+$color-gray-50: #adb5bd !default;
 $color-gray-0: #000 !default;
 
 
@@ -101,3 +107,10 @@ $wrapper-max-width: 1200px !default;
    Utilties
    ========================================================================== */
 
+
+/**
+ * Widths
+ */
+
+$width-total-columns: 12 !default;
+$width-fractions: 3 6 8 !default;
