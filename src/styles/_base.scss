@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GENERIC/BASE
+   BASE
    ========================================================================== */
 
 
@@ -11,7 +11,7 @@
 
 html {
   box-sizing: border-box;
-  line-height: 1.6;
+  line-height: 1.15;
   overflow-x: hidden;
   -ms-text-size-adjust: 100%; /* stylelint-disable-line */
   -webkit-text-size-adjust: 100%; /* stylelint-disable-line */
@@ -20,6 +20,9 @@ html {
 
 body {
   margin: 0;
+  line-height: $body-line-height;
+  background-color: $body-background-color;
+  color: $body-color;
 }
 
 
@@ -69,4 +72,16 @@ table {
 fieldset {
   min-width: 0; /* [1] */
   border: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
 }

@@ -3,37 +3,18 @@
    ========================================================================== */
 
 
-/**
- * Table of Contents
- *
- * Settings
- * Tools
- * Generic
- * Objects
- * Components
- * Vendor
- * Utilities
- *
- */
-
-
-
 // SETTINGS
-@import 'settings/settings.definitions';
-@import 'settings/settings.colors';
-@import 'settings/settings.z-index';
+@import 'variables';
 
 
 // TOOLS
-@import 'tools/tools.functions';
-@import 'tools/tools.mixins';
+@import 'functions';
+@import 'mixins';
 @import 'node_modules/sass-mq/mq';
 
 
 // GENERIC
-@import 'generic/generic.base';
-@import 'generic/generic.forms';
-@import 'generic/generic.headings';
+@import 'base';
 
 
 // OBJECTS
@@ -44,12 +25,11 @@
 
 // COMPONENTS
 @import 'components/components.button';
-// @import 'components/components.offline';
 
 
 // VENDOR
-
+// @import 'vendor/flickity';
 
 // UTILITIES
 @import 'utilities/utilities.hide';
-@import 'utilities/utilities.size';
+@import 'utilities/utilities.width';

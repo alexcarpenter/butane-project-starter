@@ -3,20 +3,20 @@
    ========================================================================== */
 
 
-$grid-gutter-size: $global-spacing-unit;
+$grid-gutter-size: 24px;
 
 
 /**
  * Core grid setup
  *
  *  <div class="o-grid o-grid--withGutters">
- *    <div class="o-grid__cell u-size6of12"></div>
- *    <div class="o-grid__cell u-size6of12"></div>
+ *    <div class="o-grid__cell u-width6of12"></div>
+ *    <div class="o-grid__cell u-width6of12"></div>
  *  </div>
  *
  *  <div class="o-grid o-grid--withGutters">
- *    <div class="o-grid__cell u-size6of12 u-size4of12@md"></div>
- *    <div class="o-grid__cell u-size6of12 u-size4of12@md"></div>
+ *    <div class="o-grid__cell u-width6of12 u-width4of12@md"></div>
+ *    <div class="o-grid__cell u-width6of12 u-width4of12@md"></div>
  *  </div>
  *
  * DO NOT apply dimension or offset utilities to the `Grid` element. All cell

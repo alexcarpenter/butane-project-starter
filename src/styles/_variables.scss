@@ -1,0 +1,70 @@
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
+
+
+/**
+ * Variables should follow the `$component-state-property-size` formula for
+ * consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+ */
+
+
+/*
+   Base
+   ========================================================================== */
+
+
+/**
+ * Breakpoints - https://github.com/sass-mq/sass-mq
+ */
+
+$mq-breakpoints: (
+  'xs': 0,
+  'sm': 480px,
+  'md': 720px,
+  'lg': 1024px,
+  'xl': 1280px,
+) !default;
+
+
+/**
+ * Colors
+ */
+
+$color-gray-100: #fff !default;
+$color-gray-0: #000 !default;
+
+
+/**
+ * Body - Settings for the `<body>` element.
+ */
+
+$body-line-height: 1.5 !default;
+$body-background-color: $color-gray-100 !default;
+$body-color: $color-gray-0 !default;
+
+
+/**
+ * Anchor links
+ */
+
+$link-color: red !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+
+/* 
+   Objects
+   ========================================================================== */
+
+
+/* 
+   Components
+   ========================================================================== */
+
+
+/* 
+   Utilties
+   ========================================================================== */
+
