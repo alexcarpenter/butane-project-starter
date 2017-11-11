@@ -25,11 +25,11 @@
    Font loading
    ========================================================================== */
 
-@mixin font-sans-loaded() {
-  font-family: $font-family-sans-fallback;
+@mixin font-sans-serif-loaded() {
+  font-family: $font-family-sans-serif-fallback;
 
   .fonts-loaded & {
-    font-family: $font-family-sans;
+    font-family: $font-family-sans-serif;
   }
 }
 

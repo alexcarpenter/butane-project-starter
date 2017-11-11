@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  @include font-sans-serif-loaded();
   margin: 0;
   line-height: $body-line-height;
   background-color: $body-background-color;
