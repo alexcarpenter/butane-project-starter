@@ -67,6 +67,31 @@ $link-hover-decoration: underline !default;
    ========================================================================== */
 
 
+/**
+ * Grid
+ */
+
+$grid-gutter-size: 24px !default;
+
+
+/**
+ * Aspect ratios
+ */
+
+$aspect-ratios: (
+  (2:1),
+  (4:3),
+  (16:9),
+) !default;
+
+
+/**
+ * Wrapper
+ */
+
+$wrapper-max-width: 1200px !default;
+
+
 /* 
    Components
    ========================================================================== */
