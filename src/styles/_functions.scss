@@ -9,3 +9,12 @@
   }
   @return $map;
 }
+
+
+@function spacing-unit($key) {
+  @if map-has-key($spacing-unit-modifiers, $key) {
+    @return round(map-get($spacing-unit-modifiers, $key) * $spacing-unit-base);
+  } @else {
+    @error 'ERROR: Specified index does not exist in the `$spacing-unit-modifiers` mapping';
+  }
+}
