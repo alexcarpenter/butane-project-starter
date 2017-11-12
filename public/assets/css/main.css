@@ -199,9 +199,11 @@ a {
  * Grid with gutters
  */
 .o-grid--withGutters {
+  margin-bottom: -32px;
   margin-right: -32px;
   margin-left: -32px; }
   .o-grid--withGutters > .o-grid__cell {
+    margin-bottom: 32px;
     padding-right: 32px;
     padding-left: 32px; }
 

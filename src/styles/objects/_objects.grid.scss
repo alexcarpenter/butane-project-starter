@@ -93,10 +93,12 @@ $grid-gutter-size: spacing-unit(3) !default;
  */
 
 .o-grid--withGutters {
+  margin-bottom: $grid-gutter-size * -1;
   margin-right: $grid-gutter-size * -1;
   margin-left: $grid-gutter-size * -1;
 
   > .o-grid__cell {
+    margin-bottom: $grid-gutter-size;
     padding-right: $grid-gutter-size;
     padding-left: $grid-gutter-size;
   }
