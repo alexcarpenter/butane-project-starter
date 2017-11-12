@@ -1,0 +1,28 @@
+/* ==========================================================================
+   UTILITIES/MARGINS
+   ========================================================================== */
+
+
+@mixin utility-margins($breakpoint: null) {
+  @for $i from 1 through length($spacing-unit-modifiers) {
+    $keyName: $i;
+    $keyValue: nth($spacing-unit-modifiers, $i) * $spacing-unit-base;
+    .u-margin-#{$keyName}#{$breakpoint} { margin: #{$keyValue} !important; }
+    .u-margin-top-#{$keyName}#{$breakpoint} { margin-top: #{$keyValue} !important; }
+    .u-margin-right-#{$keyName}#{$breakpoint} { margin-right: #{$keyValue} !important; }
+    .u-margin-bottom-#{$keyName}#{$breakpoint} { margin-bottom: #{$keyValue} !important; }
+    .u-margin-left-#{$keyName}#{$breakpoint} { margin-left: #{$keyValue} !important; }
+  }
+}
+
+
+@include utility-margins();
+
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $name, $value in $mq-breakpoints {
+    @include mq($from: $name) {
+      @include utility-margins(\@#{$name});
+    }
+  }
+}

@@ -27,12 +27,6 @@ $mq-breakpoints: (
 
 
 /**
- * Sizing
- */
-
-
-
-/**
  * Colors
  */
 
@@ -106,6 +100,14 @@ $wrapper-max-width: 1200px !default;
 /* 
    Utilties
    ========================================================================== */
+
+
+/**
+ * Spacing units
+ */
+
+$spacing-unit-base: 16px !default;
+$spacing-unit-modifiers: (0.25, 0.5, 2, 4) !default;
 
 
 /**

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   UTILITIES/PADDINGS
+   ========================================================================== */
+
+
+@mixin utility-paddings($breakpoint: null) {
+  @for $i from 1 through length($spacing-unit-modifiers) {
+    $keyName: $i;
+    $keyValue: nth($spacing-unit-modifiers, $i) * $spacing-unit-base;
+    .u-padding-#{$keyName}#{$breakpoint} { padding: #{$keyValue} !important; }
+    .u-padding-top-#{$keyName}#{$breakpoint} { padding-top: #{$keyValue} !important; }
+    .u-padding-right-#{$keyName}#{$breakpoint} { padding-right: #{$keyValue} !important; }
+    .u-padding-bottom-#{$keyName}#{$breakpoint} { padding-bottom: #{$keyValue} !important; }
+    .u-padding-left-#{$keyName}#{$breakpoint} { padding-left: #{$keyValue} !important; }
+  }
+}
+
+
+@include utility-paddings();
+
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $name, $value in $mq-breakpoints {
+    @include mq($from: $name) {
+      @include utility-paddings(\@#{$name});
+    }
+  }
+}

@@ -5,7 +5,7 @@
 
 @mixin utility-widths($breakpoint: null) {
   @each $value in $width-fractions {
-    .u-width#{$value}of#{$width-total-columns}#{$breakpoint} {
+    .u-width-#{$value}of#{$width-total-columns}#{$breakpoint} {
       flex-basis: auto !important;
       width: percentage($value / $width-total-columns) !important;
     }
