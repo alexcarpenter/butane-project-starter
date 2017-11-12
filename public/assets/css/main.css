@@ -9,10 +9,13 @@
  * https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
  */
 /*
-   Base
+   Global
    ========================================================================== */
 /**
  * Breakpoints - https://github.com/sass-mq/sass-mq
+ */
+/**
+ * Spacing units
  */
 /**
  * Colors
@@ -26,29 +29,8 @@
 /**
  * Anchor links
  */
-/* 
-   Objects
-   ========================================================================== */
-/**
- * Grid
- */
-/**
- * Aspect ratios
- */
 /**
  * Wrapper
- */
-/* 
-   Components
-   ========================================================================== */
-/* 
-   Utilties
-   ========================================================================== */
-/**
- * Spacing units
- */
-/**
- * Widths
  */
 /* ==========================================================================
    FUNCTIONS
@@ -217,11 +199,11 @@ a {
  * Grid with gutters
  */
 .o-grid--withGutters {
-  margin-right: -24px;
-  margin-left: -24px; }
+  margin-right: -32px;
+  margin-left: -32px; }
   .o-grid--withGutters > .o-grid__cell {
-    padding-right: 24px;
-    padding-left: 24px; }
+    padding-right: 32px;
+    padding-left: 32px; }
 
 /* ==========================================================================
    OBJECTS/RATIO

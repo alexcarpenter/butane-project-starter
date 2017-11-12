@@ -10,7 +10,7 @@
 
 
 /*
-   Base
+   Global
    ========================================================================== */
 
 
@@ -23,6 +23,20 @@ $mq-breakpoints: (
   'md': 720px,
   'lg': 1024px,
   'xl': 1280px,
+) !default;
+
+
+/**
+ * Spacing units
+ */
+
+$spacing-unit-base: 16px !default;
+$spacing-unit-modifiers: (
+  'base': 1,
+  1: 0.25,
+  2: 0.5,
+  3: 2,
+  4: 4,
 ) !default;
 
 
@@ -62,63 +76,8 @@ $link-hover-color: darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
 
-/* 
-   Objects
-   ========================================================================== */
-
-
-/**
- * Grid
- */
-
-$grid-gutter-size: 24px !default;
-
-
-/**
- * Aspect ratios
- */
-
-$aspect-ratios: (
-  (2:1),
-  (4:3),
-  (16:9),
-) !default;
-
-
 /**
  * Wrapper
  */
 
 $wrapper-max-width: 1200px !default;
-
-
-/* 
-   Components
-   ========================================================================== */
-
-
-/* 
-   Utilties
-   ========================================================================== */
-
-
-/**
- * Spacing units
- */
-
-$spacing-unit-base: 16px !default;
-$spacing-unit-modifiers: (
-  'base': 1,
-  1: 0.25,
-  2: 0.5,
-  3: 2,
-  4: 4,
-) !default;
-
-
-/**
- * Widths
- */
-
-$width-total-columns: 12 !default;
-$width-fractions: 3 6 8 !default;

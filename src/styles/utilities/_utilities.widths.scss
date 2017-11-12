@@ -3,6 +3,10 @@
    ========================================================================== */
 
 
+$width-total-columns: 12 !default;
+$width-fractions: 3 6 8 !default;
+
+
 @mixin utility-widths($breakpoint: null) {
   @each $value in $width-fractions {
     .u-width-#{$value}of#{$width-total-columns}#{$breakpoint} {
