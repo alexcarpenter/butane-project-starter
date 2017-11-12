@@ -3,19 +3,42 @@
    ========================================================================== */
 
 
+/**
+ * Button settings
+ */
+
+$button-padding-x: spacing-unit(3) !default;
+$button-padding-y: spacing-unit(2) !default;
+$button-background-color: red !default;
+$button-color: white !default;
+$button-border-radius: 4px !default;
+$button-transition: all ease-in-out 0.2s !default;
+
+
+/**
+ * Base
+ */
+
 .c-button {
   position: relative;
+  display: inline-flex;
   background-color: transparent;
   font: inherit;
   margin: 0;
-  padding: 20px;
+  padding: $button-padding-y $button-padding-x;
+  background-color: $button-background-color;
+  color: $button-color;
+  border-radius: $button-border-radius;
   text-align: center;
   text-decoration: none;
   user-select: none;
+  transition: $button-transition;
 }
 
 .c-button:hover,
 .c-button:focus,
 .c-button:active {
+  color: $button-color;
   text-decoration: none;
+  background-color: darken($button-background-color, 12%);
 }

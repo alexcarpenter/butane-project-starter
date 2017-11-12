@@ -121,6 +121,9 @@ a {
    OBJECTS/GRID
    ========================================================================== */
 /**
+ * Grid settings
+ */
+/**
  * Core grid setup
  *
  *  <div class="o-grid o-grid--withGutters">
@@ -210,6 +213,9 @@ a {
 /* ==========================================================================
    OBJECTS/RATIO
    ========================================================================== */
+/**
+ * Ratio settings
+ */
 .o-ratio {
   position: relative;
   display: block; }
@@ -255,23 +261,39 @@ a {
 /* ==========================================================================
    COMPONENTS/BUTTON
    ========================================================================== */
+/**
+ * Button settings
+ */
+/**
+ * Base
+ */
 .c-button {
   position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   background-color: transparent;
   font: inherit;
   margin: 0;
-  padding: 20px;
+  padding: 8px 32px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
   text-align: center;
   text-decoration: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s; }
 
 .c-button:hover,
 .c-button:focus,
 .c-button:active {
-  text-decoration: none; }
+  color: white;
+  text-decoration: none;
+  background-color: #c20000; }
 
 /* ==========================================================================
    UTILITIES/HIDE
